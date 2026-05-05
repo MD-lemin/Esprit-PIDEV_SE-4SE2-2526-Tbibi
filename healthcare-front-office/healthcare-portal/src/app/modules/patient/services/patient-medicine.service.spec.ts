@@ -1,3 +1,4 @@
+import { environment } from '../../../../environments/environment';
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { PatientMedicineService } from './patient-medicine.service';
@@ -8,8 +9,8 @@ describe('PatientMedicineService', () => {
     let service: PatientMedicineService;
     let httpMock: HttpTestingController;
 
-    const apiUrl = 'http://localhost:8088/api/medicines';
-    const pharmacyUrl = 'http://localhost:8088/api/pharmacies';
+    const apiUrl = environment.baseUrl + '/api/medicines';
+    const pharmacyUrl = environment.baseUrl + '/api/pharmacies';
 
     const mockMedicines: Medicine[] = [
         {

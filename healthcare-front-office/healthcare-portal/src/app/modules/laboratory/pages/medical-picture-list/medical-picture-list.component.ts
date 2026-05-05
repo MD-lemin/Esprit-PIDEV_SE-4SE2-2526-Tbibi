@@ -1,3 +1,4 @@
+import { environment } from '../../../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MedicalPictureAnalysisResponse, MedicalPictureAnalysisRequest } from '../../models/medical-picture-analysis.model';
@@ -42,8 +43,8 @@ export class MedicalPictureListComponent implements OnInit {
 
   selectedFile: File | null = null;
 
-  private readonly IMAGE_BASE_URL = 'http://localhost:8088/uploads/medical-pictures/';
-  private readonly API_URL = 'http://localhost:8088/api';
+  private readonly IMAGE_BASE_URL = environment.baseUrl + '/uploads/medical-pictures/';
+  private readonly API_URL = environment.baseUrl + '/api';
 
   categoryOptions = ['Radio', 'Scanner', 'IRM', 'Echographie'];
   statusOptions = ['Pending', 'In Progress', 'Completed', 'Validated', 'Rejected'];

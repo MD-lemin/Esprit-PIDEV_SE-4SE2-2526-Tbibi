@@ -1,3 +1,4 @@
+import { environment } from '../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -99,7 +100,7 @@ export class ActivateAccountComponent implements OnInit {
   private activate(token: string) {
     // ✅ FIXED: removed the backslash before ${token}
     this.http.get(
-      `http://localhost:8088/auth/activate-account?token=${token}`,
+      `${environment.baseUrl}/auth/activate-account?token=${token}`,
       { responseType: 'text' }
     ).subscribe({
       next: () => {

@@ -1,3 +1,4 @@
+import { environment } from '../../../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
 import { TreatmentPlanService } from '../../services/treatment-plan.service';
 import { TreatmentPlan, TreatmentPlanRequest } from '../../models/treatment-plan.model';
@@ -31,7 +32,7 @@ export class TreatmentPlanComponent implements OnInit {
   newPlan: TreatmentPlanRequest = this.getEmptyPlan();
   editPlan: TreatmentPlanRequest = this.getEmptyPlan();
 
-  private apiUrl = 'http://localhost:8088/api';
+  private apiUrl = environment.baseUrl + '/api';
 
   constructor(
     private treatmentPlanService: TreatmentPlanService,

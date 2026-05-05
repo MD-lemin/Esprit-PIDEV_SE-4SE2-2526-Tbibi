@@ -1,6 +1,6 @@
+import { environment } from '../../../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
 import { AdminService, AdminUser } from '../../../../services/admin.service';
-import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-admin-approvals',
@@ -145,7 +145,7 @@ export class AdminApprovalsComponent implements OnInit {
     
     const filename = profilePicture.replace(/^.*[\\/]/, '');
     // Construction de l'URL vers le backend de l'API (généralement sur le port 8088)
-    return `http://localhost:8088/uploads/documents/${filename}`;
+    return `${environment.baseUrl}/uploads/documents/${filename}`;
   }
 
   openDiploma(user: AdminUser, event: Event): void {

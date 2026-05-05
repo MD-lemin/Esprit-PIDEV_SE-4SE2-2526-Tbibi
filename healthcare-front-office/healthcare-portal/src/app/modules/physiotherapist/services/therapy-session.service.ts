@@ -1,3 +1,4 @@
+import { environment } from '../../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -7,7 +8,7 @@ import { TherapySessionRequest, TherapySessionResponse } from '../models/therapy
   providedIn: 'root'
 })
 export class TherapySessionService {
-  private apiUrl = 'http://localhost:8088/api/therapy-session';
+  private apiUrl = environment.baseUrl + '/api/therapy-session';
 
   constructor(private http: HttpClient) {}
 

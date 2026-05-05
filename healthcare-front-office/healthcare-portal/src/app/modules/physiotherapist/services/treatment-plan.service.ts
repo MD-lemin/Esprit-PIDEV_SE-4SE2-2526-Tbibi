@@ -1,3 +1,4 @@
+import { environment } from '../../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -7,7 +8,7 @@ import { TreatmentPlan, TreatmentPlanRequest } from '../models/treatment-plan.mo
   providedIn: 'root'
 })
 export class TreatmentPlanService {
-  private apiUrl = 'http://localhost:8088/api/treatment-plan';
+  private apiUrl = environment.baseUrl + '/api/treatment-plan';
 
   constructor(private http: HttpClient) {}
 

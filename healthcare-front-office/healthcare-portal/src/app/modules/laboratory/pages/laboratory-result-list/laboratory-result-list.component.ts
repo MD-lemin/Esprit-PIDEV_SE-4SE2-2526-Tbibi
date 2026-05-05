@@ -1,3 +1,4 @@
+import { environment } from '../../../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { LaboratoryResultResponse, LaboratoryResultRequest } from '../../models/laboratory-result.model';
@@ -68,7 +69,7 @@ export class LaboratoryResultListComponent implements OnInit {
     requestNotes: '' as string // ✅ NOUVEAU
   };
 
-  private apiUrl = 'http://localhost:8088/api';
+  private apiUrl = environment.baseUrl + '/api';
 
   constructor(
     private service: LaboratoryResultService,

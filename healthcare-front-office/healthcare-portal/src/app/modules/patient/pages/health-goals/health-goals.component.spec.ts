@@ -1,3 +1,4 @@
+import { environment } from '../../../../../environments/environment';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { FormsModule } from '@angular/forms';
@@ -8,7 +9,7 @@ describe('HealthGoalsComponent', () => {
   let component: HealthGoalsComponent;
   let fixture: ComponentFixture<HealthGoalsComponent>;
   let httpMock: HttpTestingController;
-  const baseUrl = 'http://localhost:8088/api/health-goals';
+  const baseUrl = environment.baseUrl + '/api/health-goals';
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

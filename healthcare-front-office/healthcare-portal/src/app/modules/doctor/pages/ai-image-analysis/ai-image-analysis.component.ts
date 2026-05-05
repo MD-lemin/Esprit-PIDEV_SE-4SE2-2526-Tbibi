@@ -1,3 +1,4 @@
+import { environment } from '../../../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -53,8 +54,8 @@ export class AiImageAnalysisComponent implements OnInit {
   selectedCategory = 'All';
   activeTab: 'analyses' | 'statistics' = 'analyses';
   
-  private apiUrl = 'http://localhost:8088/api';
-  private imageBaseUrl = 'http://localhost:8088/uploads/medical-pictures/';
+  private apiUrl = environment.baseUrl + '/api';
+  private imageBaseUrl = environment.baseUrl + '/uploads/medical-pictures/';
 
   categoryOptions = ['All', 'Radio', 'Scanner', 'IRM', 'Echographie'];
 

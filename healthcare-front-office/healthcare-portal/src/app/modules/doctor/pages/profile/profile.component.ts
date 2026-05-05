@@ -1,3 +1,4 @@
+import { environment } from '../../../../../environments/environment';
 import { Component, OnInit, NgZone } from '@angular/core';
 import { UserService, UserProfileDTO } from '../../../../services/user.service';
 import { AuthService } from '../../../../shared/services/auth.service';
@@ -323,7 +324,7 @@ export class DoctorProfileComponent implements OnInit {
     const pic = this.profile?.profilePicture;
     if (!pic) return '';
     if (pic.startsWith('http')) return pic;
-    return 'http://localhost:8088/' + pic;
+    return environment.baseUrl + '/' + pic;
   }
 
   loadProfile() {

@@ -1,3 +1,4 @@
+import { environment } from '../../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -30,7 +31,7 @@ export interface ChronicConditionResponse {
 
 @Injectable({ providedIn: 'root' })
 export class ChronicConditionService {
-  private readonly base = 'http://localhost:8088/api/chronic';
+  private readonly base = environment.baseUrl + '/api/chronic';
 
   constructor(private http: HttpClient) {}
 

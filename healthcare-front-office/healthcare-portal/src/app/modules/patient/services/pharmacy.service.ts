@@ -1,3 +1,4 @@
+import { environment } from '../../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -26,7 +27,7 @@ export interface PharmacyRequest {
 
 @Injectable({ providedIn: 'root' })
 export class PharmacyService {
-    private pharmacyApiUrl = 'http://localhost:8089/api/pharmacies';
+    private pharmacyApiUrl = environment.analyticsUrl + '/api/pharmacies';
 
     private cartItems = new BehaviorSubject<CartItem[]>([]);
     cartItems$ = this.cartItems.asObservable();

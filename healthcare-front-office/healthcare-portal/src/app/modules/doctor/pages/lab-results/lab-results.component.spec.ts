@@ -1,3 +1,4 @@
+import { environment } from '../../../../../environments/environment';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { DoctorLabResultsComponent } from './lab-results.component';
@@ -72,7 +73,7 @@ describe('DoctorLabResultsComponent', () => {
       expect(labReq.request.method).toBe('GET');
       labReq.flush(mockResults);
 
-      const notifReq = httpMock.expectOne(`http://localhost:8088/api/notifications/user/${component.currentUserId}`);
+      const notifReq = httpMock.expectOne(`${environment.baseUrl}/api/notifications/user/${component.currentUserId}`);
       expect(notifReq.request.method).toBe('GET');
       notifReq.flush(mockNotifications);
 
@@ -89,7 +90,7 @@ describe('DoctorLabResultsComponent', () => {
       labReq.error(new ErrorEvent('Network error'));
 
       // Flush the notifications request that was also triggered
-      const notifReq = httpMock.expectOne(`http://localhost:8088/api/notifications/user/${component.currentUserId}`);
+      const notifReq = httpMock.expectOne(`${environment.baseUrl}/api/notifications/user/${component.currentUserId}`);
       notifReq.flush([]);
 
       expect(console.error).toHaveBeenCalled();
@@ -100,7 +101,7 @@ describe('DoctorLabResultsComponent', () => {
     it('should load notifications successfully', () => {
       component.loadNotifications();
 
-      const req = httpMock.expectOne(`http://localhost:8088/api/notifications/user/${component.currentUserId}`);
+      const req = httpMock.expectOne(`${environment.baseUrl}/api/notifications/user/${component.currentUserId}`);
       req.flush(mockNotifications);
 
       expect(component.notifications.length).toBe(1);
@@ -112,7 +113,7 @@ describe('DoctorLabResultsComponent', () => {
       
       component.loadNotifications();
 
-      const req = httpMock.expectOne(`http://localhost:8088/api/notifications/user/${component.currentUserId}`);
+      const req = httpMock.expectOne(`${environment.baseUrl}/api/notifications/user/${component.currentUserId}`);
       req.error(new ErrorEvent('Network error'));
 
       expect(component.notifications.length).toBe(0);
@@ -132,7 +133,7 @@ describe('DoctorLabResultsComponent', () => {
       
       component.markNotificationAsRead(notification);
 
-      const req = httpMock.expectOne(`http://localhost:8088/api/notifications/${notification.notificationId}/read`);
+      const req = httpMock.expectOne(`${environment.baseUrl}/api/notifications/${notification.notificationId}/read`);
       expect(req.request.method).toBe('PUT');
       req.flush({});
 
@@ -149,7 +150,7 @@ describe('DoctorLabResultsComponent', () => {
       
       component.markNotificationAsRead(notification);
 
-      httpMock.expectNone(`http://localhost:8088/api/notifications/${notification.notificationId}/read`);
+      httpMock.expectNone(`${environment.baseUrl}/api/notifications/${notification.notificationId}/read`);
       expect(notification.read).toBe(true);
     });
   });
@@ -160,7 +161,7 @@ describe('DoctorLabResultsComponent', () => {
       
       component.markAllAsRead();
 
-      const req = httpMock.expectOne(`http://localhost:8088/api/notifications/user/${component.currentUserId}/read-all`);
+      const req = httpMock.expectOne(`${environment.baseUrl}/api/notifications/user/${component.currentUserId}/read-all`);
       expect(req.request.method).toBe('PUT');
       req.flush({});
 

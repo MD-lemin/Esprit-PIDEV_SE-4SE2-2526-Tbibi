@@ -1,3 +1,4 @@
+import { environment } from '../../../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -22,7 +23,7 @@ export class LabStatisticsComponent implements OnInit {
   isLoading = false;
   currentLabUserId: number = 0;
   
-  private apiUrl = 'http://localhost:8088/api/laboratory-results';
+  private apiUrl = environment.baseUrl + '/api/laboratory-results';
 
   constructor(private http: HttpClient) {}
 

@@ -1,9 +1,10 @@
+import { environment } from '../../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-const API = 'http://localhost:8088/api/terra';
+const API = environment.baseUrl + '/api/terra';
 
 export interface TerraVitals {
   patientId: number;

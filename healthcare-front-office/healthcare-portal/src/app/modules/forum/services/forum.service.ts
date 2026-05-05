@@ -1,3 +1,4 @@
+import { environment } from '../../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -14,7 +15,7 @@ import {
 
 @Injectable({ providedIn: 'root' })
 export class ForumService {
-  private apiUrl = 'http://localhost:8088/api/forum';
+  private apiUrl = environment.baseUrl + '/api/forum';
 
   constructor(private http: HttpClient) { }
 

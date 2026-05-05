@@ -1,3 +1,4 @@
+import { environment } from '../../../../../environments/environment';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { UserService, UserProfileDTO } from '../../../../services/user.service';
 
@@ -129,7 +130,7 @@ import { UserService, UserProfileDTO } from '../../../../services/user.service';
 })
 export class ProfileComponent implements OnInit {
 
-  private readonly API_BASE = 'http://localhost:8088';
+  private readonly API_BASE = environment.baseUrl;
 
   userProfile: UserProfileDTO | null = null;
   loading = true;

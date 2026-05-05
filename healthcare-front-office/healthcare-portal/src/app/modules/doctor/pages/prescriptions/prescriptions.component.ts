@@ -1,3 +1,4 @@
+import { environment } from '../../../../../environments/environment';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import {
   ActeDTO,
@@ -13,7 +14,6 @@ import { interval, Subscription, forkJoin } from 'rxjs';
 import { switchMap, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-doctor-prescriptions',

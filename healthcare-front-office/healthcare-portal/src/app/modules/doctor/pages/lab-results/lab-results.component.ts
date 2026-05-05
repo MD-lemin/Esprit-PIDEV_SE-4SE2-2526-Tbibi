@@ -1,3 +1,4 @@
+import { environment } from '../../../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -37,7 +38,7 @@ export class DoctorLabResultsComponent implements OnInit {
     requestNotes: ''
   };
   
-  private apiUrl = 'http://localhost:8088/api';
+  private apiUrl = environment.baseUrl + '/api';
   private get doctorId(): number {
     return Number(localStorage.getItem('userId') || 0);
   }

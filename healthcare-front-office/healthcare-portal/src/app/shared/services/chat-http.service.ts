@@ -1,3 +1,4 @@
+import { environment } from '../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -20,8 +21,8 @@ export interface UserProfile {
 })
 export class ChatHttpService {
 
-  private readonly baseUrl = 'http://localhost:8088/medical-chat';
-  private readonly usersBaseUrl = 'http://localhost:8088/users';
+  private readonly baseUrl = environment.baseUrl + '/medical-chat';
+  private readonly usersBaseUrl = environment.baseUrl + '/users';
 
   constructor(private http: HttpClient) { }
 

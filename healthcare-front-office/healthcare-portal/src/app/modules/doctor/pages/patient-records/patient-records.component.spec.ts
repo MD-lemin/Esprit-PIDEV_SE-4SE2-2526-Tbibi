@@ -1,3 +1,4 @@
+import { environment } from '../../../../../environments/environment';
 import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
@@ -10,7 +11,6 @@ import {
   VaccineRequest,
   UrinaryExamRequest,
 } from './patient-records.component';
-import { environment } from '../../../../../environments/environment';
 
 // ─── Données de test ──────────────────────────────────────────────────────────
 

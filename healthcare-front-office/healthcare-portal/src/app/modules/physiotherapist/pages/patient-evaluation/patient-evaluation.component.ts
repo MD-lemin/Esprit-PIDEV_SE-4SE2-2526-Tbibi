@@ -1,3 +1,4 @@
+import { environment } from '../../../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
 import { PatientEvaluationService } from '../../services/patient-evaluation.service';
 import { PatientEvaluation, PatientEvaluationRequest } from '../../models/patient-evaluation.model';
@@ -28,7 +29,7 @@ export class PatientEvaluationComponent implements OnInit {
   
   newEvaluation: PatientEvaluationRequest = this.getEmptyEvaluation();
 
-  private apiUrl = 'http://localhost:8088/api';
+  private apiUrl = environment.baseUrl + '/api';
 
   constructor(
     private evaluationService: PatientEvaluationService,

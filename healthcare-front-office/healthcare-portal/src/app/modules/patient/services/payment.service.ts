@@ -1,3 +1,4 @@
+import { environment } from '../../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -19,7 +20,7 @@ export interface PaymentResponse {
 
 @Injectable({ providedIn: 'root' })
 export class PaymentService {
-    private apiUrl = 'http://localhost:8089/api/payments';
+    private apiUrl = environment.analyticsUrl + '/api/payments';
 
     constructor(private http: HttpClient) { }
 

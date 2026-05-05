@@ -1,3 +1,4 @@
+import { environment } from '../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -6,7 +7,7 @@ import { WebSocketService } from './websocket.service';
 
 @Injectable({ providedIn: 'root' })
 export class NotificationService {
-  private apiUrl = 'http://localhost:8088/api/notifications';
+  private apiUrl = environment.baseUrl + '/api/notifications';
 
   notifications$ = new BehaviorSubject<NotificationResponse[]>([]);
   unreadCount$ = new BehaviorSubject<number>(0);

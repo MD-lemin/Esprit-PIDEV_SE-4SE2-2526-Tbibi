@@ -1,3 +1,4 @@
+import { environment } from '../../../../environments/environment';
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { PatientOrderService } from './patient-order.service';
@@ -6,7 +7,7 @@ import { OrderRequest, OrderResponse } from '../models/order.model';
 describe('PatientOrderService', () => {
     let service: PatientOrderService;
     let httpMock: HttpTestingController;
-    const apiUrl = 'http://localhost:8088/api/orders';
+    const apiUrl = environment.baseUrl + '/api/orders';
 
     const mockOrder: OrderResponse = {
         orderId: 1, orderDate: '2024-01-15', deliveryDate: null,

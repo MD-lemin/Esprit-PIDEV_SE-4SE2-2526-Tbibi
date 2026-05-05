@@ -1,3 +1,4 @@
+import { environment } from '../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -17,7 +18,7 @@ export interface UserProfileDTO {
   providedIn: 'root'
 })
 export class UserService {
-  private apiUrl = 'http://localhost:8088/api/user';
+  private apiUrl = environment.baseUrl + '/api/user';
 
   constructor(private http: HttpClient) { }
 

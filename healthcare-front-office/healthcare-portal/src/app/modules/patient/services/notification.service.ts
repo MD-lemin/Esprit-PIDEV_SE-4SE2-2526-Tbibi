@@ -1,3 +1,4 @@
+import { environment } from '../../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Client, IMessage } from '@stomp/stompjs';
@@ -33,7 +34,7 @@ export interface Notification {
 })
 export class NotificationService {
 
-  private apiUrl = 'http://localhost:8088/api/notifications';
+  private apiUrl = environment.baseUrl + '/api/notifications';
   private stompClient!: Client;
   private notificationSubject = new Subject<NotificationDTO>();
   public notifications$ = this.notificationSubject.asObservable();
@@ -75,7 +76,7 @@ export class NotificationService {
   // ✅ WebSocket (temps réel)
   connect(patientId: number): void {
     this.stompClient = new Client({
-      webSocketFactory: () => new SockJS('http://localhost:8088/ws'),
+      webSocketFactory: () => new SockJS(environment.baseUrl + '/ws'),
       reconnectDelay: 5000,
       onConnect: () => {
         console.log('✅ WebSocket connecté pour patient:', patientId);

@@ -1,3 +1,4 @@
+import { environment } from '../../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -6,8 +7,8 @@ import { Pharmacy } from '../models/pharmacy.model';
 
 @Injectable({ providedIn: 'root' })
 export class PatientMedicineService {
-    private apiUrl = 'http://localhost:8088/api/medicines';
-    private pharmacyUrl = 'http://localhost:8088/api/pharmacies';
+    private apiUrl = environment.baseUrl + '/api/medicines';
+    private pharmacyUrl = environment.baseUrl + '/api/pharmacies';
 
     constructor(private http: HttpClient) { }
 

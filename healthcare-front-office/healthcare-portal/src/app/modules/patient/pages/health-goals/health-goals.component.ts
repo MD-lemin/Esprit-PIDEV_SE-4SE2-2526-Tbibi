@@ -1,3 +1,4 @@
+import { environment } from '../../../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -221,7 +222,7 @@ export class HealthGoalsComponent implements OnInit {
     frequencyPerWeek: undefined
   };
 
-  private readonly baseUrl = 'http://localhost:8088/api/health-goals';
+  private readonly baseUrl = environment.baseUrl + '/api/health-goals';
 
   private get userId(): number {
     return Number(localStorage.getItem('userId') || 1);

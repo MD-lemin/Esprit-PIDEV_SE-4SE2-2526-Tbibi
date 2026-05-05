@@ -1,3 +1,4 @@
+import { environment } from '../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { Client, StompSubscription, IMessage } from '@stomp/stompjs';
 import SockJS from 'sockjs-client';
@@ -39,8 +40,8 @@ export class ChatWebSocketService {
     
     // Build WebSocket URL with token as query parameter (fallback for SockJS)
     const wsUrl = token 
-      ? `http://localhost:8088/ws?Authorization=Bearer%20${encodeURIComponent(token)}` 
-      : 'http://localhost:8088/ws';
+      ? `${environment.baseUrl}/ws?Authorization=Bearer%20${encodeURIComponent(token)}` 
+      : environment.baseUrl + '/ws';
 
     this.stompClient = new Client({
       debug: (msg: string) => console.log('STOMP: ' + msg),

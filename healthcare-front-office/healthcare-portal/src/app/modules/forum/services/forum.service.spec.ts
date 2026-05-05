@@ -1,3 +1,4 @@
+import { environment } from '../../../../environments/environment';
 // src/app/modules/forum/services/forum.service.spec.ts
 
 import { TestBed } from '@angular/core/testing';
@@ -15,7 +16,7 @@ describe('ForumService', () => {
     let service: ForumService;
     let httpMock: HttpTestingController;
 
-    const apiUrl = 'http://localhost:8088/api/forum';
+    const apiUrl = environment.baseUrl + '/api/forum';
 
     // ══════════════════════════════════════════════════════════════════
     // MOCK DATA

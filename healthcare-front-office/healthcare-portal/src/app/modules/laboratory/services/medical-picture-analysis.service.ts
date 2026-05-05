@@ -1,3 +1,4 @@
+import { environment } from '../../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -7,7 +8,7 @@ import { MedicalPictureAnalysisRequest, MedicalPictureAnalysisResponse } from '.
   providedIn: 'root'
 })
 export class MedicalPictureAnalysisService {
-  private apiUrl = 'http://localhost:8088/api/medical-picture-analysis';
+  private apiUrl = environment.baseUrl + '/api/medical-picture-analysis';
 
   constructor(private http: HttpClient) {}
 
