@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "npx serve -s dist/healthcare-portal/browser -l 8080",
+    "start": "pm2 serve /home/site/wwwroot/healthcare-front-office/healthcare-portal/dist/healthcare-portal/browser --no-daemon --spa",
     "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -24,8 +24,8 @@
     "lucide-angular": "^0.564.0",
     "marked": "^17.0.5",
     "ngx-webcam": "^0.4.1",
+    "pm2": "^5.3.0",
     "rxjs": "~7.8.0",
-    "serve": "^14.2.0",
     "sockjs-client": "^1.6.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"
